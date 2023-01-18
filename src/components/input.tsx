@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import '../components/input.css';
 
 export const Input = () => {
   const [result, setResult] = useState('');
@@ -35,10 +37,11 @@ export const Input = () => {
   };
 
   return (
-    <div>
-      <form action="" onSubmit={handlesubmit}>
-        <input type={'text'} placeholder="paste your URL here" id="userInput"></input>
-        <button type="submit">Shorten URL</button>
+    <div className='main'>
+      <h1>URL Shortener</h1>
+      <form className='form' onSubmit={handlesubmit}>
+        <input className='input' type={'text'} placeholder="Paste your URL here" id="userInput"></input>
+        <Button variant="primary" type='submit'>Shorten Url</Button>
       </form>
       <div className="result">{result}</div>
     </div>

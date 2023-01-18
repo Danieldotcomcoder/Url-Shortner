@@ -8,8 +8,6 @@ export const Input = () => {
   const [message, setMessage] = useState('');
 
  const copytoclipboard = (event: any) => {
-
-  
   navigator.clipboard.writeText(event.target.innerHTML);
   setMessage('Copied :)')
   setTimeout(()=> setMessage(''),1000);
@@ -35,7 +33,6 @@ export const Input = () => {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data);
         setResult(response.data.result_url);
       })
       .catch(function (error) {

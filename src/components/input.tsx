@@ -1,14 +1,14 @@
 import axios from 'axios';
+import { useState } from 'react';
 
 export const Input = () => {
-
-
+  const [result, setResult] = useState('');
 
   const handlesubmit = (event: any) => {
-    event.preventDefault()
+    event.preventDefault();
     const encodedParams = new URLSearchParams();
     encodedParams.append('url', event.currentTarget.elements.userInput.value);
-  
+
     const options = {
       method: 'POST',
       url: 'https://url-shortener-service.p.rapidapi.com/shorten',
@@ -19,27 +19,28 @@ export const Input = () => {
       },
       data: encodedParams,
     };
-  
+
     axios
       .request(options)
       .then(function (response) {
         console.log(response.data);
+        setResult(response.data.result_url);
       })
       .catch(function (error) {
         console.error(error);
       });
-      
-      
-     return event
-  }
- 
+
+    event.currentTarget.elements.userInput.value = '';
+    return event;
+  };
+
   return (
     <div>
       <form action="" onSubmit={handlesubmit}>
-        <input type={'text'} placeholder='test' id="userInput"></input>
-        <button type="submit">Submit</button>
-
+        <input type={'text'} placeholder="paste your URL here" id="userInput"></input>
+        <button type="submit">Shorten URL</button>
       </form>
+      <div className="result">{result}</div>
     </div>
   );
 };

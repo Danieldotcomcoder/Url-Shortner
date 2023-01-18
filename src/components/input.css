@@ -1,34 +1,37 @@
 * {
-    font-family: cursive;
+  font-family: cursive;
 }
 .main {
-    text-align: center;
+  text-align: center;
 }
 
 h1 {
-    font-family: cursive;
+  font-family: cursive;
 }
 Form {
   padding: 1%;
   margin-top: 6%;
-  border: 2px solid teal;
+  border: 2px solid crimson;
   display: flex;
   flex-direction: column;
   width: 80%;
   margin-left: 10%;
   border-radius: 10px;
-  box-shadow: 10px 10px 10px lightcoral;
+  box-shadow: 20px 20px 20px lightcoral;
 }
 
 Form input {
   width: 50%;
   margin-top: 1%;
   align-self: center;
-  border: 2px solid lightseagreen;
+  border: 1px solid crimson;
   border-radius: 5px;
-  box-shadow: 5px 5px 5px lightcoral;
+  box-shadow: 10px 10px 10px lightpink;
 }
 
+Form input::placeholder {
+  color: crimson;
+}
 Form input:focus {
   outline: 1px solid lightseagreen;
 }
@@ -37,5 +40,34 @@ Form button {
   width: 13%;
   margin-top: 2%;
   align-self: center;
-  box-shadow: 3px 3px 3px lightcoral;
+  box-shadow: 5px 5px 5px lightgreen;
+  
+}
+
+.button {
+  color: black;
+  border: 1px solid crimson;
+}
+
+Form button:active {
+  box-shadow: 5px 5px 5px lightcoral;
+}
+
+.button:hover {
+  box-shadow: 5px 5px 5px lightcoral;
+  color: black;
+}
+
+.result {
+  width: 100%;
+  font-size: 25px;
+  margin-top: 2%;
+  cursor: pointer;
+}
+
+.message {
+  font-style: normal;
+  font-size: 15px;
+  font-weight: 200;
+  color: blueviolet;
 }

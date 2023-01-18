@@ -5,6 +5,16 @@ import '../components/input.css';
 
 export const Input = () => {
   const [result, setResult] = useState('');
+  const [message, setMessage] = useState('');
+
+ const copytoclipboard = (event: any) => {
+
+  
+  navigator.clipboard.writeText(event.target.innerHTML);
+  setMessage('Copied :)')
+  setTimeout(()=> setMessage(''),1000);
+ }
+  
 
   const handlesubmit = (event: any) => {
     event.preventDefault();
@@ -41,9 +51,16 @@ export const Input = () => {
       <h1>URL Shortener</h1>
       <form className='form' onSubmit={handlesubmit}>
         <input className='input' type={'text'} placeholder="Paste your URL here" id="userInput"></input>
-        <Button variant="primary" type='submit'>Shorten Url</Button>
+        <Button className='button' variant="primary" type='submit'>Shorten Url</Button>
       </form>
-      <div className="result">{result}</div>
+      <div className="result">
+        <p className='message'>
+        {message}
+        </p>
+        <p onClick={copytoclipboard}>
+        {result}
+        </p>
+        </div>
     </div>
   );
 };
